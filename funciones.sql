@@ -164,23 +164,17 @@ select GetMonthDescription(2);
 
 
 
-/*create trigger fill_data
-    before insert on EVENT
-    for each row
-   EXECUTE PROCEDURE Checking();
+create trigger fill_data
+before insert on EVENT
+for each row
+execute procedure checking();
 
-create or replace FUNCTION Checking() RETURNS Trigger
+create or replace FUNCTION checking() RETURNS Trigger
 AS $$
 DECLARE
-aSueldo FLOAT;
+date date = new.Declaration_Date;
 BEGIN
- SELECT MAX(sueldo) INTO aSueldo FROM empleado;
- IF (new.sueldo > aSueldo) THEN
- Raise exception 'SUELDO MUY ALTO' USING ERRCODE = 'PP111';
- END IF;
-
- Return NEW;
 END;
 $$ LANGUAGE plpgsql;
-copy EVENT from './fed_emergency_disaster.csv' using delimiter ',' csv header;
-*/
+
+copy EVENT from './fed_emergency_disaster.csv' with delimiter ',' csv header;
