@@ -211,10 +211,7 @@ $$ LANGUAGE plpgsql;
 
 
 
-create trigger fill_data
-before insert on EVENT
-for each row
-execute procedure checking();
+
 
 create or replace FUNCTION checking() RETURNS Trigger
 AS $$
@@ -233,19 +230,25 @@ BEGIN
     end if;
     select t1.id into quarterId from QUARTER as t1 where t1.quarternumber==quarter;
     if  quarterId is null then
-        execute quarterId := fillQuarter(quarter,year);
+        quarterId := fillQuarter(quarter,year);
     end if;
     select t1.id into monthId from MONTH as t1 where t1.monthid==month;
     if  monthId is null then
-        execute monthid := fillMonth(month,quarterId);
+        monthid := fillMonth(month,quarterId);
     end if;
     select t1.id into dateDetail from DATEDETAIL as t1 where t1.day==day && t1.monthfk=monthId;
     if  dateDetail is null then
-        execute monthid := FillDateDetails(date,monthId);
+        dateDetail := FillDateDetails(date,monthId);
     end if;
     new.Declaration_Date := dateDetail;
 
 END;
 $$ LANGUAGE plpgsql;
 
+create trigger fill_data
+before insert on EVENT
+for each row
+execute procedure checking();
+
 copy EVENT from './fed_emergency_disaster.csv' with delimiter ',' csv header;
+--no encuentra el archivo

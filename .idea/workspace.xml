@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="struct??">
+    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="&quot;&quot;&quot;&quot;finished&quot;&quot;&quot;&quot;&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funciones.sql" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.sql" afterDir="false" />
     </list>
@@ -61,13 +64,30 @@
     <MESSAGE value="struct" />
     <MESSAGE value="." />
     <MESSAGE value="struct??" />
-    <option name="LAST_COMMIT_MESSAGE" value="struct??" />
+    <MESSAGE value="&quot;&quot;&quot;&quot;finished&quot;&quot;&quot;&quot;&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;&quot;&quot;&quot;finished&quot;&quot;&quot;&quot;&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591886546234">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1591886546234" />
+    <state width="820" height="147" key="GridCell.Tab.0.bottom" timestamp="1591891241129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="820" height="147" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591891241129" />
+    <state width="820" height="147" key="GridCell.Tab.0.center" timestamp="1591891241129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="820" height="147" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591891241129" />
+    <state width="820" height="147" key="GridCell.Tab.0.left" timestamp="1591891241129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="820" height="147" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591891241129" />
+    <state width="820" height="147" key="GridCell.Tab.0.right" timestamp="1591891241129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="820" height="147" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591891241129" />
     <state width="198" height="457" key="HiddenNamespacesPopup" timestamp="1591886716745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
