@@ -1,4 +1,5 @@
 drop table if exists YEAR,QUARTER,MONTH,DATEDETAIL,EVENT;
+
 create table YEAR (
 	year integer not null check (year < 2500),
 	isleap boolean default false,
@@ -14,7 +15,6 @@ create table QUARTER (
 	foreign key(yearfk) references year
 );
 
-
 create table MONTH (
 	id serial not null,
 	monthid integer not null check (monthid between 1 and 12),
@@ -24,7 +24,6 @@ create table MONTH (
 	unique(monthid, quarterfk),
 	foreign key (quarterfk) references quarter
 );
-
 
 create table DATEDETAIL (
 	id serial not null, 
@@ -46,44 +45,124 @@ create table EVENT (
 	primary key (Declaration_Number),
 	foreign key (Declaration_Date) references DATEDETAIL
 );
-create or replace function get_weekday (IN weekday integer)
-    returns varchar as $$
-    begin
-        case weekday
-        when 0 then return 'domingo';
-        when 1 then return 'lunes';
-        when 2 then return 'martes';
-        when 3 then return 'miercoles';
-        when 4 then return 'jueves';
-        when 5 then return 'viernes';
-        when 6 then return 'sabado';
-        else raise exception 'error number';
-        end case;
-    end;
-    $$ language plpgsql;
 
-create or replace function checkLeapYear(
-year int
-) returns boolean as $$
-    begin
-    return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
-    end;
-$$ language plpgsql;
+ create or replace function get_weekday (IN weekday integer)
+     returns varchar as $$
+     begin
+         case weekday
+         when 0 then return 'domingo';
+         when 1 then return 'lunes';
+         when 2 then return 'martes';
+         when 3 then return 'miercoles';
+         when 4 then return 'jueves';
+         when 5 then return 'viernes';
+         when 6 then return 'sabado';
+         else raise exception 'error number';
+         end case;
+     end;
+     $$ language plpgsql;
 
-set datestyle to dmy;
+ create or replace function checkLeapYear(
+ year int
+ ) returns boolean as $$
+     begin
+     return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
+     end;
+ $$ language plpgsql;
+ 
+ set datestyle to dmy;
 
-create or replace function fillYear (
-date Date
-) returns void as $$
-declare
-    year int := 0;
-    isleap bool := 0;
-    begin
-    year := extract (year from date);
-    isleap := checkLeapYear(year);
-    raise notice '% %', year, isleap;
-end;
-    $$ language plpgsql;
+ create or replace function fillYear (
+ date Date
+ ) returns void as $$
+ declare
+     year int := 0;
+     isleap bool := 0;
+     begin
+     year := extract (year from date);
+     isleap := checkLeapYear(year);
+     raise notice '% %', year, isleap;
+ end;
+     $$ language plpgsql;
+	 
+	 
+
+CREATE OR REPLACE FUNCTION GetMonthDescription(month integer)
+RETURNS varchar AS
+$$
+  DECLARE 
+  	monthDescription varchar(200):='basura';
+	
+  BEGIN
+	if month = 1 then 
+		monthDescription := 'Enero';
+	elseif month = 2 then  
+		monthDescription := 'Febrero';
+ 	elseif month = 3 then  
+		monthDescription := 'Marzo';
+ 	elseif month = 4 then  
+		monthDescription := 'Abril';
+ 	elseif month = 5 then  
+		monthDescription := 'Mayo';
+ 	elseif month = 6 then  
+		monthDescription := 'Junio';
+ 	elseif month = 7 then  
+		monthDescription := 'Julio';
+ 	elseif month = 8 then  
+		monthDescription := 'Agosto';
+ 	elseif month = 9 then  
+		monthDescription := 'Septiembre';
+ 	elseif month = 10 then  
+		monthDescription := 'Octubre';
+ 	elseif month = 11 then  
+		monthDescription := 'Noviembre';
+    elseif month = 12 then  
+		monthDescription := 'Diciembre';
+  	else 
+		raise exception 'Invalid Month';
+	end if;
+	
+    RETURN monthDescription;
+  END;
+$$ LANGUAGE plpgsql;
+
+ DO $$
+  DECLARE
+  g date := '01/10/2020';
+  g2 date := '01/10/2019';
+  begin
+  perform fillYear(g);
+  perform fillYear(g2);
+ end;
+ $$;
+ 
+ DO $$
+  DECLARE
+  d1 integer:= 0;
+  d2 integer:= 2;
+  d3 integer:= 3;
+  begin
+      raise notice '%',get_weekday(d1);
+      raise notice '%',get_weekday(d2);
+     raise notice '%',get_weekday(d3);
+  end;
+ $$;
+
+ DO $$
+ DECLARE
+  mes integer :=12;
+  aa varchar(20);
+ BEGIN
+  aa := GetMonthDescription(mes);
+ 
+  raise notice '%', aa;
+ END;
+ $$;
+
+select GetMonthDescription(2);
+
+
+
 
 /*create trigger fill_data
     before insert on EVENT
