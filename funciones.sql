@@ -88,7 +88,20 @@ end;
 /*create trigger fill_data
     before insert on EVENT
     for each row
-    execute function get_id()
- ...
+   EXECUTE PROCEDURE Checking();
+
+create or replace FUNCTION Checking() RETURNS Trigger
+AS $$
+DECLARE
+aSueldo FLOAT;
+BEGIN
+ SELECT MAX(sueldo) INTO aSueldo FROM empleado;
+ IF (new.sueldo > aSueldo) THEN
+ Raise exception 'SUELDO MUY ALTO' USING ERRCODE = 'PP111';
+ END IF;
+
+ Return NEW;
+END;
+$$ LANGUAGE plpgsql;
 copy EVENT from './fed_emergency_disaster.csv' using delimiter ',' csv header;
 */
