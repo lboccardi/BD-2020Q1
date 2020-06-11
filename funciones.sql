@@ -163,3 +163,11 @@ select GetMonthDescription(2);
 
 
 
+
+/*create trigger fill_data
+    before insert on EVENT
+    for each row
+    execute function get_id()
+ ...
+copy EVENT from './fed_emergency_disaster.csv' using delimiter ',' csv header;
+*/
