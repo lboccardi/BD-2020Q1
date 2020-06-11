@@ -84,6 +84,29 @@ create table EVENT (
      insert into year values (year, isleap);
  end;
      $$ language plpgsql;
+	
+create or replace function fillMonth (date Date, quarterId integer)
+returns Integer as $$
+ declare
+     monthNum integer := 0;
+	 monthDesc varchar(20);
+     monthID integer;
+ begin
+     monthNum := extract (month from date);
+	 monthDesc := GetMonthDescription(monthNum);
+     insert into month values (monthNum, monthDesc, quarterId);
+	 
+	 monthID:= select id from month where month.monthid = monthNum and month.quarterfk = quarterId;
+	 
+	 if monthID is null then
+	 	raise exception 'Month wasnt inserted'
+	 	
+	 end if
+	 
+	 return monthID;
+	 
+ end;
+     $$ language plpgsql;
 	 
 	 
 
@@ -149,7 +172,6 @@ $$ LANGUAGE plpgsql;
  END;
  $$;
 
-select GetMonthDescription(2);
 
 
 
