@@ -1,4 +1,4 @@
-
+drop table if exists YEAR,QUARTER,MONTH,DATEDETAIL,EVENT;
 create table YEAR (
 	year integer not null check (year < 2500),
 	isleap boolean default false,
@@ -46,4 +46,30 @@ create table EVENT (
 	primary key (Declaration_Number),
 	foreign key (Declaration_Date) references DATEDETAIL
 );
+create or replace function get_weekday (IN weekday integer)
+    returns varchar as $$
+    begin
+        case weekday
+        when 0 then return 'domingo';
+        when 1 then return 'lunes';
+        when 2 then return 'martes';
+        when 3 then return 'miercoles';
+        when 4 then return 'jueves';
+        when 5 then return 'viernes';
+        when 6 then return 'sabado';
+        else raise exception 'error number';
+        end case;
+    end;
+    $$ language plpgsql;
 
+DO $$
+ DECLARE
+ d1 integer:= 0;
+ d2 integer:= 2;
+ d3 integer:= 22;
+ begin
+     raise notice '%',get_weekday(d1);
+     raise notice '%',get_weekday(d2);
+    raise notice '%',get_weekday(d3);
+ end;
+$$
