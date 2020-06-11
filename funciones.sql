@@ -78,10 +78,10 @@ create table EVENT (
  declare
      year int := 0;
      isleap bool := 0;
-     begin
+ begin
      year := extract (year from date);
      isleap := checkLeapYear(year);
-     raise notice '% %', year, isleap;
+     insert into year values (year, isleap);
  end;
      $$ language plpgsql;
 	 
@@ -125,16 +125,6 @@ $$
     RETURN monthDescription;
   END;
 $$ LANGUAGE plpgsql;
-
- DO $$
-  DECLARE
-  g date := '01/10/2020';
-  g2 date := '01/10/2019';
-  begin
-  perform fillYear(g);
-  perform fillYear(g2);
- end;
- $$;
  
  DO $$
   DECLARE
