@@ -119,11 +119,24 @@ create table EVENT (
  ) returns void as $$
  declare
      year int := 0;
-     isleap bool := 0;
+     is_leap bool := 0;
  begin
      year := extract (year from date);
-     isleap := checkLeapYear(year);
-     insert into year values (year, isleap);
+     is_leap := checkLeapYear(year);
+     insert into year values (year, is_leap);
+ end;
+     $$ language plpgsql;
+
+create or replace function fillQuarter (
+ quarter_num integer,
+ year integer
+ ) returns integer as $$
+ declare
+    ret integer;
+ begin
+     insert into quarter values (quarter_num, year);
+     select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
+     return ret;
  end;
      $$ language plpgsql;
 	
