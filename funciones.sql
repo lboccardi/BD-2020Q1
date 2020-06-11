@@ -25,6 +25,26 @@ create table MONTH (
 	foreign key (quarterfk) references quarter
 );
 
+create or replace function fillMonth (monthNum Integer, quarterId integer)
+returns Integer as $$
+ declare
+	 monthDesc varchar(20);
+     monthID integer;
+ begin
+	 monthDesc := GetMonthDescription(monthNum);
+     insert into month(monthid,monthdesc,quarterfk) values (monthNum, monthDesc, quarterId);
+	 
+	 select id into monthID from month where month.monthid = monthNum and month.quarterfk = quarterId;
+	 
+	 if monthID is null then
+	 	raise exception 'Month wasnt inserted';
+	 end if;
+	 
+	 return monthID;
+	 
+ end;
+     $$ language plpgsql;
+
 create table DATEDETAIL (
 	id serial not null, 
 	day integer not null check (day between 1 and 31),
@@ -35,6 +55,28 @@ create table DATEDETAIL (
 	unique(day, monthfk), 
 	foreign key(monthfk) references month
 );
+
+create or replace function FillDateDetails (date date, monthId integer)
+returns integer as $$
+ declare
+ 	dayNum integer;
+	dow varchar(20);
+	isWeekend boolean:= false;
+	dateId integer;
+ begin
+	 dayNum := extract (day from date);
+	 dow := extract(dow from date);
+	 if dow = 0 or dow = 6 then
+	 	isWeekend:= true;
+	end if;
+	
+	insert into datedetail(day,dayofweek,weekend,monthfk) values (dayNum, dow,isWeekend, monthId);
+	 
+	select id into dateId from datedetail where dayNum = datedetail.day and monthId = datedetail.monthfk;
+	
+	return dateId;
+ end;
+     $$ language plpgsql;
 
 create table EVENT (
 	Declaration_Number varchar(20) check (Declaration_Number like 'DR-_%'),
@@ -85,27 +127,9 @@ create table EVENT (
  end;
      $$ language plpgsql;
 	
-create or replace function fillMonth (monthNum Integer, quarterId integer)
-returns Integer as $$
- declare
-	 monthDesc varchar(20);
-     monthID integer;
- begin
-	 monthDesc := GetMonthDescription(monthNum);
-     insert into month values (monthNum, monthDesc, quarterId);
+
 	 
-	 monthID:= select id from month where month.monthid = monthNum and month.quarterfk = quarterId;
-	 
-	 if monthID is null then
-	 	raise exception 'Month wasnt inserted'
-	 	
-	 end if
-	 
-	 return monthID;
-	 
- end;
-     $$ language plpgsql;
-	 
+	
 	 
 
 CREATE OR REPLACE FUNCTION GetMonthDescription(month integer)
