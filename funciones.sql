@@ -85,14 +85,12 @@ create table EVENT (
  end;
      $$ language plpgsql;
 	
-create or replace function fillMonth (date Date, quarterId integer)
+create or replace function fillMonth (monthNum Integer, quarterId integer)
 returns Integer as $$
  declare
-     monthNum integer := 0;
 	 monthDesc varchar(20);
      monthID integer;
  begin
-     monthNum := extract (month from date);
 	 monthDesc := GetMonthDescription(monthNum);
      insert into month values (monthNum, monthDesc, quarterId);
 	 
