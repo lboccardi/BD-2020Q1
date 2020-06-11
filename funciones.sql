@@ -62,6 +62,38 @@ create or replace function get_weekday (IN weekday integer)
     end;
     $$ language plpgsql;
 
+create or replace function checkLeapYear(
+year int
+) returns boolean as $$
+    begin
+    return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
+    end;
+$$ language plpgsql;
+
+set datestyle to dmy;
+
+create or replace function fillYear (
+date Date
+) returns void as $$
+declare
+    year int := 0;
+    isleap bool := 0;
+    begin
+    year := extract (year from date);
+    isleap := checkLeapYear(year);
+    raise notice '% %', year, isleap;
+end;
+    $$ language plpgsql;
+
+DO $$
+ DECLARE
+ g date := '01/10/2020';
+ g2 date := '01/10/2019';
+ begin
+ perform fillYear(g);
+ perform fillYear(g2);
+end;
+$$
 DO $$
  DECLARE
  d1 integer:= 0;
