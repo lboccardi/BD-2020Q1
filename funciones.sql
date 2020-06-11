@@ -85,23 +85,10 @@ declare
 end;
     $$ language plpgsql;
 
-DO $$
- DECLARE
- g date := '01/10/2020';
- g2 date := '01/10/2019';
- begin
- perform fillYear(g);
- perform fillYear(g2);
-end;
-$$
-DO $$
- DECLARE
- d1 integer:= 0;
- d2 integer:= 2;
- d3 integer:= 22;
- begin
-     raise notice '%',get_weekday(d1);
-     raise notice '%',get_weekday(d2);
-    raise notice '%',get_weekday(d3);
- end;
-$$
+/*create trigger fill_data
+    before insert on EVENT
+    for each row
+    execute function get_id()
+ ...
+copy EVENT from './fed_emergency_disaster.csv' using delimiter ',' csv header;
+*/
