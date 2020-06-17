@@ -20,7 +20,7 @@ create table QUARTER (
 create table MONTH (
 	id serial not null,
 	monthid integer not null check (monthid between 1 and 12),
-	monthdesc varchar(20) check (monthdesc in ('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')),
+	monthdesc varchar(20) check (monthdesc in ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')),
 	quarterfk integer not null,
 	primary key(id),
 	unique(monthid, quarterfk),
