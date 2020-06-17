@@ -84,20 +84,20 @@ returns integer as $$
      $$ language plpgsql;
 
 create table EVENT (
-	Declaration_Number varchar(20) check (Declaration_Number like 'DR-_%'),
+	Declaration_Number varchar(20) not null,
 	Declaration_Type varchar(30) check (Declaration_Type in ('Disaster', 'Fire', 'Emergency')),
 	Declaration_Date integer not null,
-	State varchar(2) check( State in ('AK','AL','AR','AS','AZ','CA','CO','CT','DC','DE','FL','FM','GA','GU','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MS','MO','MT','NC','NE','NH','NJ','NM','NV','NY','ND','OH','OK','OR','PA','PR','PW','RI','SC','SD','TN','TX','UT','VT','VA','VI','WA','WV','WI','WY')),
+	State varchar(2) not null,
 	Disaster_Type varchar(20) check( Disaster_Type in ('Tornado','Flood','Fire','Other','Earthquake','Hurricane','Volcano','Storm','Chemical','Typhoon','Drought','Dam/Levee Break','Snow','Ice','Winter','Mud/Landslide','Human Cause','Terrorism','Tsunami','Water')),
 	primary key (Declaration_Number),
 	foreign key (Declaration_Date) references DATEDETAIL
 );
 
 create table EVENT_AUX (
-	Declaration_Number varchar(20) check (Declaration_Number like 'DR-_%'),
+	Declaration_Number varchar(20) not null,
 	Declaration_Type varchar(30) check (Declaration_Type in ('Disaster', 'Fire', 'Emergency')),
 	Declaration_Date date not null,
-	State varchar(2) check( State in ('AK','AL','AR','AS','AZ','CA','CO','CT','DC','DE','FL','FM','GA','GU','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MS','MO','MT','NC','NE','NH','NJ','NM','NV','NY','ND','OH','OK','OR','PA','PR','PW','RI','SC','SD','TN','TX','UT','VT','VA','VI','WA','WV','WI','WY')),
+	State varchar(2) not null,
 	Disaster_Type varchar(20) check( Disaster_Type in ('Tornado','Flood','Fire','Other','Earthquake','Hurricane','Volcano','Storm','Chemical','Typhoon','Drought','Dam/Levee Break','Snow','Ice','Winter','Mud/Landslide','Human Cause','Terrorism','Tsunami','Water')),
 	primary key (Declaration_Number)
 );
