@@ -125,18 +125,16 @@ returns void as $$
  	end;
 $$ language plpgsql;
 
-create or replace function fillQuarter (
- quarter_num integer,
- year integer
- ) returns integer as $$
- declare
-    ret integer;
- begin
-     insert into quarter values (quarter_num, year);
-     select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
-     return ret;
- end;
-     $$ language plpgsql;
+create or replace function fillQuarter ( quarter_num integer, year integer)
+returns integer as $$
+	declare
+		ret integer;
+	begin
+		insert into quarter values (quarter_num, year);
+		select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
+		return ret;
+	end;
+$$ language plpgsql;
 	
 
 	 
@@ -177,15 +175,14 @@ DO $$
   	end;
 $$;
 
- DO $$
- DECLARE
-  mes integer :=12;
-  aa varchar(20);
- BEGIN
-  aa := GetMonthDescription(mes);
- 
-  raise notice '%', aa;
- END;
+DO $$
+ 	DECLARE
+		mes integer :=12;
+		aa varchar(20);
+	BEGIN
+		aa := GetMonthDescription(mes);		
+		raise notice '%', aa;
+	END;
  $$;
 
 
@@ -194,36 +191,37 @@ $$;
 
 
 
-create or replace FUNCTION checking() RETURNS Trigger
+create or replace FUNCTION checking()
+RETURNS Trigger
 AS $$
-DECLARE
-date date = new.Declaration_Date;
-month integer = extract(month from date);
-year integer = extract(year from date);
-day integer = extract(day from date);
-quarter integer = (month/4) + 1;
-quarterId integer = -1;
-monthId integer = -1;
-dateDetail integer = -1;
-BEGIN
-    if not exists (select from YEAR as t1 where t1.year == year) then
-        execute fillYear(year);
-    end if;
-    select t1.id into quarterId from QUARTER as t1 where t1.quarternumber==quarter;
-    if  quarterId is null then
-        quarterId := fillQuarter(quarter,year);
-    end if;
-    select t1.id into monthId from MONTH as t1 where t1.monthid==month;
-    if  monthId is null then
-        monthid := fillMonth(month,quarterId);
-    end if;
-    select t1.id into dateDetail from DATEDETAIL as t1 where t1.day==day && t1.monthfk=monthId;
-    if  dateDetail is null then
-        dateDetail := FillDateDetails(date,monthId);
-    end if;
-    new.Declaration_Date := dateDetail;
+	DECLARE
+		date date = new.Declaration_Date;
+		month integer = extract(month from date);
+		year integer = extract(year from date);
+		day integer = extract(day from date);
+		quarter integer = (month/4) + 1;
+		quarterId integer = -1;
+		monthId integer = -1;
+		dateDetail integer = -1;
+	BEGIN
+		if not exists (select t1.year from YEAR as t1 where t1.year == year) then
+			execute fillYear(year);
+		end if;
+		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber==quarter;
+		if  quarterId is null then
+			quarterId := fillQuarter(quarter,year);
+		end if;
+		select t1.id into monthId from MONTH as t1 where t1.monthid==month;
+		if  monthId is null then
+			monthid := fillMonth(month,quarterId);
+		end if;
+		select t1.id into dateDetail from DATEDETAIL as t1 where t1.day==day && t1.monthfk=monthId;
+		if  dateDetail is null then
+			dateDetail := FillDateDetails(date,monthId);
+		end if;
+		new.Declaration_Date := dateDetail;
 
-END;
+	END;
 $$ LANGUAGE plpgsql;
 
 create trigger fill_data
