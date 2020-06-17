@@ -62,17 +62,20 @@ create or replace function FillDateDetails (date date, monthId integer)
 returns integer as $$
  declare
  	dayNum integer;
-	dow varchar(20);
+	dow integer;
+	dowString varchar(20);
 	isWeekend boolean:= false;
 	dateId integer;
  begin
 	 dayNum := extract (day from date);
 	 dow := extract(dow from date);
+	 dowString := get_weekday(dow);
 	 if dow = 0 or dow = 6 then
 	 	isWeekend:= true;
 	end if;
 	
-	insert into datedetail(day,dayofweek,weekend,monthfk) values (dayNum, dow,isWeekend, monthId);
+	
+	insert into datedetail(day,dayofweek,weekend,monthfk) values (dayNum, dowString,isWeekend, monthId);
 	 
 	select id into dateId from datedetail where dayNum = datedetail.day and monthId = datedetail.monthfk;
 	
