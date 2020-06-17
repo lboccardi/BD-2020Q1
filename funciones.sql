@@ -88,44 +88,42 @@ create table EVENT (
 	foreign key (Declaration_Date) references DATEDETAIL
 );
 
- create or replace function get_weekday (IN weekday integer)
-     returns varchar as $$
-     begin
-         case weekday
-         when 0 then return 'domingo';
-         when 1 then return 'lunes';
-         when 2 then return 'martes';
-         when 3 then return 'miercoles';
-         when 4 then return 'jueves';
-         when 5 then return 'viernes';
-         when 6 then return 'sabado';
-         else raise exception 'error number';
-         end case;
-     end;
-     $$ language plpgsql;
+create or replace function get_weekday (IN weekday integer)
+returns varchar as $$
+    begin
+        case weekday
+        when 0 then return 'domingo';
+        when 1 then return 'lunes';
+        when 2 then return 'martes';
+        when 3 then return 'miercoles';
+        when 4 then return 'jueves';
+        when 5 then return 'viernes';
+        when 6 then return 'sabado';
+        else raise exception 'error number';
+        end case;
+end;
+$$ language plpgsql;
 
- create or replace function checkLeapYear(
- year int
- ) returns boolean as $$
-     begin
-     return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
-     end;
- $$ language plpgsql;
+create or replace function checkLeapYear( year int ) 
+returns boolean as $$
+    begin
+    	return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
+    end;
+$$ language plpgsql;
  
- set datestyle to dmy;
+set datestyle to dmy;
 
- create or replace function fillYear (
- date Date
- ) returns void as $$
- declare
-     year int := 0;
-     is_leap bool := 0;
- begin
-     year := extract (year from date);
-     is_leap := checkLeapYear(year);
-     insert into year values (year, is_leap);
- end;
-     $$ language plpgsql;
+create or replace function fillYear ( date Date )
+returns void as $$
+ 	declare
+    	year int := 0;
+    	is_leap bool := 0;
+ 	begin
+    	year := extract (year from date);
+    	is_leap := checkLeapYear(year);
+     	insert into year values (year, is_leap);
+ 	end;
+$$ language plpgsql;
 
 create or replace function fillQuarter (
  quarter_num integer,
@@ -147,54 +145,37 @@ create or replace function fillQuarter (
 
 CREATE OR REPLACE FUNCTION GetMonthDescription(month integer)
 RETURNS varchar AS
-$$
-  DECLARE 
-  	monthDescription varchar(200):='basura';
-	
-  BEGIN
-	if month = 1 then 
-		monthDescription := 'Enero';
-	elseif month = 2 then  
-		monthDescription := 'Febrero';
- 	elseif month = 3 then  
-		monthDescription := 'Marzo';
- 	elseif month = 4 then  
-		monthDescription := 'Abril';
- 	elseif month = 5 then  
-		monthDescription := 'Mayo';
- 	elseif month = 6 then  
-		monthDescription := 'Junio';
- 	elseif month = 7 then  
-		monthDescription := 'Julio';
- 	elseif month = 8 then  
-		monthDescription := 'Agosto';
- 	elseif month = 9 then  
-		monthDescription := 'Septiembre';
- 	elseif month = 10 then  
-		monthDescription := 'Octubre';
- 	elseif month = 11 then  
-		monthDescription := 'Noviembre';
-    elseif month = 12 then  
-		monthDescription := 'Diciembre';
-  	else 
-		raise exception 'Invalid Month';
-	end if;
-	
-    RETURN monthDescription;
-  END;
+$$	
+	BEGIN
+		case month
+			when 1 then return'Enero';
+			when 2 then return'Febrero';
+			when 3 then return'Marzo';
+			when 4 then return'Abril';
+			when 5 then return'Mayo';
+			when 6 then return'Junio';
+			when 7 then return'Julio';
+			when 8 then return'Agosto';
+			when 9 then return'Septiembre';
+			when 10 then return'Octubre';
+			when 11 then return'Noviembre';
+			when 12 then return'Diciembre';
+			else raise exception 'Invalid Month';
+			end case;
+	END;
 $$ LANGUAGE plpgsql;
  
- DO $$
-  DECLARE
-  d1 integer:= 0;
-  d2 integer:= 2;
-  d3 integer:= 3;
-  begin
-      raise notice '%',get_weekday(d1);
-      raise notice '%',get_weekday(d2);
-     raise notice '%',get_weekday(d3);
-  end;
- $$;
+DO $$
+  	DECLARE
+  		d1 integer:= 0;
+  		d2 integer:= 2;
+  		d3 integer:= 3;
+  	begin
+      	raise notice '%',get_weekday(d1);
+      	raise notice '%',get_weekday(d2);
+     	raise notice '%',get_weekday(d3);
+  	end;
+$$;
 
  DO $$
  DECLARE
