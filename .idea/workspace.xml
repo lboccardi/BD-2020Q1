@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="trying...">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" afterDir="false" />
+    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funciones.sql" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,29 +64,30 @@
     <MESSAGE value="&quot;&quot;&quot;&quot;finished&quot;&quot;&quot;&quot;&quot;" />
     <MESSAGE value="todo compila" />
     <MESSAGE value="trying..." />
-    <option name="LAST_COMMIT_MESSAGE" value="trying..." />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591886546234">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1591886546234" />
-    <state width="845" height="162" key="GridCell.Tab.0.bottom" timestamp="1592408067432">
+    <state width="845" height="162" key="GridCell.Tab.0.bottom" timestamp="1592408583189">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592408067432" />
-    <state width="845" height="162" key="GridCell.Tab.0.center" timestamp="1592408067432">
+    <state width="845" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592408583189" />
+    <state width="845" height="162" key="GridCell.Tab.0.center" timestamp="1592408583188">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592408067432" />
-    <state width="845" height="162" key="GridCell.Tab.0.left" timestamp="1592408067432">
+    <state width="845" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592408583188" />
+    <state width="845" height="162" key="GridCell.Tab.0.left" timestamp="1592408583188">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592408067432" />
-    <state width="845" height="162" key="GridCell.Tab.0.right" timestamp="1592408067432">
+    <state width="845" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592408583188" />
+    <state width="845" height="162" key="GridCell.Tab.0.right" timestamp="1592408583189">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592408067432" />
+    <state width="845" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592408583189" />
     <state width="198" height="457" key="HiddenNamespacesPopup" timestamp="1591886716745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
