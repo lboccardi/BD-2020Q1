@@ -796,10 +796,10 @@ true posixrules
     <database id="3" parent="1" name="tpe">
       <ObjectId>16393</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>765</IntrospectionStateNumber>
-      <Relations>sequence|table|17356|17358|1
-sequence|table|17372|17374|1
-sequence|table|17389|17391|1
+      <IntrospectionStateNumber>1127</IntrospectionStateNumber>
+      <Relations>sequence|table|18712|18714|1
+sequence|table|18728|18730|1
+sequence|table|18745|18747|1
 </Relations>
     </database>
     <role id="4" parent="1" name="pg_execute_server_program">
@@ -851,7 +851,7 @@ sequence|table|17389|17391|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>766</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1128</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="16" parent="3" name="heap">
@@ -922,70 +922,75 @@ sequence|table|17389|17391|1
     <language id="26" parent="3" name="plpgsql"/>
     <language id="27" parent="3" name="sql"/>
     <sequence id="28" parent="15" name="datedetail_id_seq">
-      <ObjectId>17389</ObjectId>
+      <ObjectId>18745</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="29" parent="15" name="month_id_seq">
-      <ObjectId>17372</ObjectId>
+      <ObjectId>18728</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1113</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="30" parent="15" name="quarter_id_seq">
-      <ObjectId>17356</ObjectId>
+      <ObjectId>18712</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1112</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer|0s</DataType>
     </sequence>
     <table id="31" parent="15" name="datedetail">
-      <ObjectId>17391</ObjectId>
+      <ObjectId>18747</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
     </table>
     <table id="32" parent="15" name="event">
-      <ObjectId>17407</ObjectId>
+      <ObjectId>18763</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
     </table>
-    <table id="33" parent="15" name="month">
-      <ObjectId>17374</ObjectId>
+    <table id="33" parent="15" name="event_aux">
+      <ObjectId>18777</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1125</StateNumber>
     </table>
-    <table id="34" parent="15" name="quarter">
-      <ObjectId>17358</ObjectId>
+    <table id="34" parent="15" name="month">
+      <ObjectId>18730</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1113</StateNumber>
     </table>
-    <table id="35" parent="15" name="year">
-      <ObjectId>17349</ObjectId>
+    <table id="35" parent="15" name="quarter">
+      <ObjectId>18714</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1112</StateNumber>
     </table>
-    <routine id="36" parent="15" name="checking">
+    <table id="36" parent="15" name="year">
+      <ObjectId>18705</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1112</StateNumber>
+    </table>
+    <routine id="37" parent="15" name="checking">
       <ObjectId>17054</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>961</SourceTextLength>
-      <StateNumber>757</StateNumber>
+      <SourceTextLength>1161</SourceTextLength>
+      <StateNumber>1124</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ResultsDefinition>trigger</ResultsDefinition>
       <LanguageName>plpgsql</LanguageName>
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="37" parent="15" name="checkleapyear">
+    <routine id="38" parent="15" name="checkleapyear">
       <ObjectId>16904</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>95</SourceTextLength>
-      <StateNumber>753</StateNumber>
+      <SourceTextLength>92</SourceTextLength>
+      <StateNumber>1120</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>year integer</ArgumentsDefinition>
       <ResultsDefinition>boolean</ResultsDefinition>
@@ -993,11 +998,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="38" parent="15" name="filldatedetails">
+    <routine id="39" parent="15" name="filldatedetails">
       <ObjectId>16889</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>460</SourceTextLength>
-      <StateNumber>750</StateNumber>
+      <StateNumber>1116</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>date date, monthid integer</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -1005,11 +1010,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="39" parent="15" name="fillmonth">
+    <routine id="40" parent="15" name="fillmonth">
       <ObjectId>16870</ObjectId>
       <Owner>postgres</Owner>
       <SourceTextLength>423</SourceTextLength>
-      <StateNumber>748</StateNumber>
+      <StateNumber>1114</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>monthnum integer, quarterid integer</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -1017,11 +1022,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="40" parent="15" name="fillquarter">
+    <routine id="41" parent="15" name="fillquarter">
       <ObjectId>16906</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>205</SourceTextLength>
-      <StateNumber>755</StateNumber>
+      <SourceTextLength>189</SourceTextLength>
+      <StateNumber>1122</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>quarter_num integer, year integer</ArgumentsDefinition>
       <ResultsDefinition>integer</ResultsDefinition>
@@ -1029,11 +1034,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="41" parent="15" name="fillyear">
+    <routine id="42" parent="15" name="fillyear">
       <ObjectId>16905</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>194</SourceTextLength>
-      <StateNumber>754</StateNumber>
+      <SourceTextLength>193</SourceTextLength>
+      <StateNumber>1121</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>date date</ArgumentsDefinition>
       <ResultsDefinition>void</ResultsDefinition>
@@ -1041,11 +1046,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="42" parent="15" name="get_weekday">
+    <routine id="43" parent="15" name="get_weekday">
       <ObjectId>16684</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>384</SourceTextLength>
-      <StateNumber>752</StateNumber>
+      <SourceTextLength>363</SourceTextLength>
+      <StateNumber>1119</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>weekday integer</ArgumentsDefinition>
       <ResultsDefinition>character varying</ResultsDefinition>
@@ -1053,11 +1058,11 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <routine id="43" parent="15" name="getmonthdescription">
+    <routine id="44" parent="15" name="getmonthdescription">
       <ObjectId>16907</ObjectId>
       <Owner>postgres</Owner>
-      <SourceTextLength>856</SourceTextLength>
-      <StateNumber>756</StateNumber>
+      <SourceTextLength>462</SourceTextLength>
+      <StateNumber>1123</StateNumber>
       <VolatilityKind>volatile</VolatilityKind>
       <ArgumentsDefinition>month integer</ArgumentsDefinition>
       <ResultsDefinition>character varying</ResultsDefinition>
@@ -1065,426 +1070,496 @@ sequence|table|17389|17391|1
       <RoutineKind>function</RoutineKind>
       <Cost>100.0</Cost>
     </routine>
-    <column id="44" parent="31" name="id">
+    <column id="45" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <DefaultExpression>nextval(&apos;datedetail_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="45" parent="31" name="day">
+    <column id="46" parent="31" name="day">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="46" parent="31" name="dayofweek">
+    <column id="47" parent="31" name="dayofweek">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="47" parent="31" name="weekend">
+    <column id="48" parent="31" name="weekend">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <DefaultExpression>false</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
-    <column id="48" parent="31" name="monthfk">
+    <column id="49" parent="31" name="monthfk">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>749</StateNumber>
+      <StateNumber>1115</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="49" parent="31" name="datedetail_pkey">
-      <ObjectId>17398</ObjectId>
-      <StateNumber>749</StateNumber>
+    <index id="50" parent="31" name="datedetail_pkey">
+      <ObjectId>18754</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="50" parent="31" name="datedetail_day_monthfk_key">
-      <ObjectId>17400</ObjectId>
-      <StateNumber>749</StateNumber>
+    <index id="51" parent="31" name="datedetail_day_monthfk_key">
+      <ObjectId>18756</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>day
 monthfk</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="51" parent="31" name="datedetail_pkey">
-      <ObjectId>17399</ObjectId>
-      <StateNumber>749</StateNumber>
+    <key id="52" parent="31" name="datedetail_pkey">
+      <ObjectId>18755</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>datedetail_pkey</UnderlyingIndexName>
     </key>
-    <key id="52" parent="31" name="datedetail_day_monthfk_key">
-      <ObjectId>17401</ObjectId>
-      <StateNumber>749</StateNumber>
+    <key id="53" parent="31" name="datedetail_day_monthfk_key">
+      <ObjectId>18757</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>day
 monthfk</ColNames>
       <UnderlyingIndexName>datedetail_day_monthfk_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="53" parent="31" name="datedetail_monthfk_fkey">
-      <ObjectId>17402</ObjectId>
-      <StateNumber>749</StateNumber>
+    <foreign-key id="54" parent="31" name="datedetail_monthfk_fkey">
+      <ObjectId>18758</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>monthfk</ColNames>
-      <RefTableId>17374</RefTableId>
+      <RefTableId>18730</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>month</RefTableName>
       <RefKeyName>month_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="54" parent="31" name="datedetail_day_check">
-      <ObjectId>17396</ObjectId>
-      <StateNumber>749</StateNumber>
+    <check id="55" parent="31" name="datedetail_day_check">
+      <ObjectId>18752</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>day</ColNames>
       <Predicate>(day &gt;= 1) AND (day &lt;= 31)</Predicate>
     </check>
-    <check id="55" parent="31" name="datedetail_dayofweek_check">
-      <ObjectId>17397</ObjectId>
-      <StateNumber>749</StateNumber>
+    <check id="56" parent="31" name="datedetail_dayofweek_check">
+      <ObjectId>18753</ObjectId>
+      <StateNumber>1115</StateNumber>
       <ColNames>dayofweek</ColNames>
       <Predicate>(dayofweek)::text = ANY ((ARRAY[&apos;lunes&apos;::character varying, &apos;martes&apos;::character varying, &apos;miercoles&apos;::character varying, &apos;jueves&apos;::character varying, &apos;viernes&apos;::character varying, &apos;sabado&apos;::character varying, &apos;domingo&apos;::character varying])::text[])</Predicate>
     </check>
-    <column id="56" parent="32" name="declaration_number">
+    <column id="57" parent="32" name="declaration_number">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="57" parent="32" name="declaration_type">
+    <column id="58" parent="32" name="declaration_type">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="58" parent="32" name="declaration_date">
+    <column id="59" parent="32" name="declaration_date">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="32" name="state">
+    <column id="60" parent="32" name="state">
       <Position>4</Position>
       <DataType>varchar(2)|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="32" name="disaster_type">
+    <column id="61" parent="32" name="disaster_type">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>1117</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="61" parent="32" name="event_pkey">
-      <ObjectId>17414</ObjectId>
-      <StateNumber>751</StateNumber>
+    <index id="62" parent="32" name="event_pkey">
+      <ObjectId>18770</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>declaration_number</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="62" parent="32" name="event_pkey">
-      <ObjectId>17415</ObjectId>
-      <StateNumber>751</StateNumber>
+    <key id="63" parent="32" name="event_pkey">
+      <ObjectId>18771</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>declaration_number</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>event_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="63" parent="32" name="event_declaration_date_fkey">
-      <ObjectId>17416</ObjectId>
-      <StateNumber>751</StateNumber>
+    <foreign-key id="64" parent="32" name="event_declaration_date_fkey">
+      <ObjectId>18772</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>declaration_date</ColNames>
-      <RefTableId>17391</RefTableId>
+      <RefTableId>18747</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>datedetail</RefTableName>
       <RefKeyName>datedetail_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="64" parent="32" name="event_declaration_number_check">
-      <ObjectId>17410</ObjectId>
-      <StateNumber>751</StateNumber>
+    <check id="65" parent="32" name="event_declaration_number_check">
+      <ObjectId>18766</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>declaration_number</ColNames>
       <Predicate>(declaration_number)::text ~~ &apos;DR-_%&apos;::text</Predicate>
     </check>
-    <check id="65" parent="32" name="event_declaration_type_check">
-      <ObjectId>17411</ObjectId>
-      <StateNumber>751</StateNumber>
+    <check id="66" parent="32" name="event_declaration_type_check">
+      <ObjectId>18767</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>declaration_type</ColNames>
       <Predicate>(declaration_type)::text = ANY ((ARRAY[&apos;Disaster&apos;::character varying, &apos;Fire&apos;::character varying, &apos;Emergency&apos;::character varying])::text[])</Predicate>
     </check>
-    <check id="66" parent="32" name="event_disaster_type_check">
-      <ObjectId>17413</ObjectId>
-      <StateNumber>751</StateNumber>
+    <check id="67" parent="32" name="event_disaster_type_check">
+      <ObjectId>18769</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>disaster_type</ColNames>
       <Predicate>(disaster_type)::text = ANY ((ARRAY[&apos;Tornado&apos;::character varying, &apos;Flood&apos;::character varying, &apos;Fire&apos;::character varying, &apos;Other&apos;::character varying, &apos;Earthquake&apos;::character varying, &apos;Hurricane&apos;::character varying, &apos;Volcano&apos;::character varying, &apos;Storm&apos;::character varying, &apos;Chemical&apos;::character varying, &apos;Typhoon&apos;::character varying, &apos;Drought&apos;::character varying, &apos;Dam/Levee Break&apos;::character varying, &apos;Snow&apos;::character varying, &apos;Ice&apos;::character varying, &apos;Winter&apos;::character varying, &apos;Mud/Landslide&apos;::character varying, &apos;Human Cause&apos;::character varying, &apos;Terrorism&apos;::character varying, &apos;Tsunami&apos;::character varying, &apos;Water&apos;::character varying])::text[])</Predicate>
     </check>
-    <check id="67" parent="32" name="event_state_check">
-      <ObjectId>17412</ObjectId>
-      <StateNumber>751</StateNumber>
+    <check id="68" parent="32" name="event_state_check">
+      <ObjectId>18768</ObjectId>
+      <StateNumber>1117</StateNumber>
       <ColNames>state</ColNames>
       <Predicate>(state)::text = ANY ((ARRAY[&apos;AK&apos;::character varying, &apos;AL&apos;::character varying, &apos;AR&apos;::character varying, &apos;AZ&apos;::character varying, &apos;CA&apos;::character varying, &apos;CO&apos;::character varying, &apos;CT&apos;::character varying, &apos;DC&apos;::character varying, &apos;DE&apos;::character varying, &apos;FL&apos;::character varying, &apos;GA&apos;::character varying, &apos;HI&apos;::character varying, &apos;IA&apos;::character varying, &apos;ID&apos;::character varying, &apos;IL&apos;::character varying, &apos;IN&apos;::character varying, &apos;KS&apos;::character varying, &apos;KY&apos;::character varying, &apos;LA&apos;::character varying, &apos;MA&apos;::character varying, &apos;MD&apos;::character varying, &apos;ME&apos;::character varying, &apos;MI&apos;::character varying, &apos;MN&apos;::character varying, &apos;MS&apos;::character varying, &apos;MO&apos;::character varying, &apos;MT&apos;::character varying, &apos;NC&apos;::character varying, &apos;NE&apos;::character varying, &apos;NH&apos;::character varying, &apos;NJ&apos;::character varying, &apos;NM&apos;::character varying, &apos;NV&apos;::character varying, &apos;NY&apos;::character varying, &apos;ND&apos;::character varying, &apos;OH&apos;::character varying, &apos;OK&apos;::character varying, &apos;OR&apos;::character varying, &apos;PA&apos;::character varying, &apos;RI&apos;::character varying, &apos;SC&apos;::character varying, &apos;SD&apos;::character varying, &apos;TN&apos;::character varying, &apos;TX&apos;::character varying, &apos;UT&apos;::character varying, &apos;VT&apos;::character varying, &apos;VA&apos;::character varying, &apos;WA&apos;::character varying, &apos;WV&apos;::character varying, &apos;WI&apos;::character varying, &apos;WY&apos;::character varying])::text[])</Predicate>
     </check>
-    <trigger id="68" parent="32" name="fill_data">
-      <ObjectId>17421</ObjectId>
-      <StateNumber>758</StateNumber>
+    <column id="69" parent="33" name="declaration_number">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="70" parent="33" name="declaration_type">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="71" parent="33" name="declaration_date">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="72" parent="33" name="state">
+      <Position>4</Position>
+      <DataType>varchar(2)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="73" parent="33" name="disaster_type">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <StateNumber>1118</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="74" parent="33" name="event_aux_pkey">
+      <ObjectId>18784</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>declaration_number</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="75" parent="33" name="event_aux_pkey">
+      <ObjectId>18785</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>declaration_number</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>event_aux_pkey</UnderlyingIndexName>
+    </key>
+    <check id="76" parent="33" name="event_aux_declaration_number_check">
+      <ObjectId>18780</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>declaration_number</ColNames>
+      <Predicate>(declaration_number)::text ~~ &apos;DR-_%&apos;::text</Predicate>
+    </check>
+    <check id="77" parent="33" name="event_aux_declaration_type_check">
+      <ObjectId>18781</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>declaration_type</ColNames>
+      <Predicate>(declaration_type)::text = ANY ((ARRAY[&apos;Disaster&apos;::character varying, &apos;Fire&apos;::character varying, &apos;Emergency&apos;::character varying])::text[])</Predicate>
+    </check>
+    <check id="78" parent="33" name="event_aux_disaster_type_check">
+      <ObjectId>18783</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>disaster_type</ColNames>
+      <Predicate>(disaster_type)::text = ANY ((ARRAY[&apos;Tornado&apos;::character varying, &apos;Flood&apos;::character varying, &apos;Fire&apos;::character varying, &apos;Other&apos;::character varying, &apos;Earthquake&apos;::character varying, &apos;Hurricane&apos;::character varying, &apos;Volcano&apos;::character varying, &apos;Storm&apos;::character varying, &apos;Chemical&apos;::character varying, &apos;Typhoon&apos;::character varying, &apos;Drought&apos;::character varying, &apos;Dam/Levee Break&apos;::character varying, &apos;Snow&apos;::character varying, &apos;Ice&apos;::character varying, &apos;Winter&apos;::character varying, &apos;Mud/Landslide&apos;::character varying, &apos;Human Cause&apos;::character varying, &apos;Terrorism&apos;::character varying, &apos;Tsunami&apos;::character varying, &apos;Water&apos;::character varying])::text[])</Predicate>
+    </check>
+    <check id="79" parent="33" name="event_aux_state_check">
+      <ObjectId>18782</ObjectId>
+      <StateNumber>1118</StateNumber>
+      <ColNames>state</ColNames>
+      <Predicate>(state)::text = ANY ((ARRAY[&apos;AK&apos;::character varying, &apos;AL&apos;::character varying, &apos;AR&apos;::character varying, &apos;AZ&apos;::character varying, &apos;CA&apos;::character varying, &apos;CO&apos;::character varying, &apos;CT&apos;::character varying, &apos;DC&apos;::character varying, &apos;DE&apos;::character varying, &apos;FL&apos;::character varying, &apos;GA&apos;::character varying, &apos;HI&apos;::character varying, &apos;IA&apos;::character varying, &apos;ID&apos;::character varying, &apos;IL&apos;::character varying, &apos;IN&apos;::character varying, &apos;KS&apos;::character varying, &apos;KY&apos;::character varying, &apos;LA&apos;::character varying, &apos;MA&apos;::character varying, &apos;MD&apos;::character varying, &apos;ME&apos;::character varying, &apos;MI&apos;::character varying, &apos;MN&apos;::character varying, &apos;MS&apos;::character varying, &apos;MO&apos;::character varying, &apos;MT&apos;::character varying, &apos;NC&apos;::character varying, &apos;NE&apos;::character varying, &apos;NH&apos;::character varying, &apos;NJ&apos;::character varying, &apos;NM&apos;::character varying, &apos;NV&apos;::character varying, &apos;NY&apos;::character varying, &apos;ND&apos;::character varying, &apos;OH&apos;::character varying, &apos;OK&apos;::character varying, &apos;OR&apos;::character varying, &apos;PA&apos;::character varying, &apos;RI&apos;::character varying, &apos;SC&apos;::character varying, &apos;SD&apos;::character varying, &apos;TN&apos;::character varying, &apos;TX&apos;::character varying, &apos;UT&apos;::character varying, &apos;VT&apos;::character varying, &apos;VA&apos;::character varying, &apos;WA&apos;::character varying, &apos;WV&apos;::character varying, &apos;WI&apos;::character varying, &apos;WY&apos;::character varying])::text[])</Predicate>
+    </check>
+    <trigger id="80" parent="33" name="fill_data">
+      <ObjectId>18786</ObjectId>
+      <StateNumber>1125</StateNumber>
       <Turn>before-row</Turn>
       <Events>I</Events>
       <FireMode>origin</FireMode>
       <CallRoutineId>17054</CallRoutineId>
     </trigger>
-    <column id="69" parent="33" name="id">
+    <column id="81" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1113</StateNumber>
       <DefaultExpression>nextval(&apos;month_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="70" parent="33" name="monthid">
+    <column id="82" parent="34" name="monthid">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="71" parent="33" name="monthdesc">
+    <column id="83" parent="34" name="monthdesc">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="72" parent="33" name="quarterfk">
+    <column id="84" parent="34" name="quarterfk">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>747</StateNumber>
+      <StateNumber>1113</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="73" parent="33" name="month_pkey">
-      <ObjectId>17380</ObjectId>
-      <StateNumber>747</StateNumber>
+    <index id="85" parent="34" name="month_pkey">
+      <ObjectId>18736</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="74" parent="33" name="month_monthid_quarterfk_key">
-      <ObjectId>17382</ObjectId>
-      <StateNumber>747</StateNumber>
+    <index id="86" parent="34" name="month_monthid_quarterfk_key">
+      <ObjectId>18738</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>monthid
 quarterfk</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="75" parent="33" name="month_pkey">
-      <ObjectId>17381</ObjectId>
-      <StateNumber>747</StateNumber>
+    <key id="87" parent="34" name="month_pkey">
+      <ObjectId>18737</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>month_pkey</UnderlyingIndexName>
     </key>
-    <key id="76" parent="33" name="month_monthid_quarterfk_key">
-      <ObjectId>17383</ObjectId>
-      <StateNumber>747</StateNumber>
+    <key id="88" parent="34" name="month_monthid_quarterfk_key">
+      <ObjectId>18739</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>monthid
 quarterfk</ColNames>
       <UnderlyingIndexName>month_monthid_quarterfk_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="77" parent="33" name="month_quarterfk_fkey">
-      <ObjectId>17384</ObjectId>
-      <StateNumber>747</StateNumber>
+    <foreign-key id="89" parent="34" name="month_quarterfk_fkey">
+      <ObjectId>18740</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>quarterfk</ColNames>
-      <RefTableId>17358</RefTableId>
+      <RefTableId>18714</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>quarter</RefTableName>
       <RefKeyName>quarter_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <check id="78" parent="33" name="month_monthdesc_check">
-      <ObjectId>17379</ObjectId>
-      <StateNumber>747</StateNumber>
+    <check id="90" parent="34" name="month_monthdesc_check">
+      <ObjectId>18735</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>monthdesc</ColNames>
       <Predicate>(monthdesc)::text = ANY ((ARRAY[&apos;enero&apos;::character varying, &apos;febrero&apos;::character varying, &apos;marzo&apos;::character varying, &apos;abril&apos;::character varying, &apos;mayo&apos;::character varying, &apos;junio&apos;::character varying, &apos;julio&apos;::character varying, &apos;agosto&apos;::character varying, &apos;septiembre&apos;::character varying, &apos;octubre&apos;::character varying, &apos;noviembre&apos;::character varying, &apos;diciembre&apos;::character varying])::text[])</Predicate>
     </check>
-    <check id="79" parent="33" name="month_monthid_check">
-      <ObjectId>17378</ObjectId>
-      <StateNumber>747</StateNumber>
+    <check id="91" parent="34" name="month_monthid_check">
+      <ObjectId>18734</ObjectId>
+      <StateNumber>1113</StateNumber>
       <ColNames>monthid</ColNames>
       <Predicate>(monthid &gt;= 1) AND (monthid &lt;= 12)</Predicate>
     </check>
-    <column id="80" parent="34" name="id">
+    <column id="92" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1112</StateNumber>
       <DefaultExpression>nextval(&apos;quarter_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="81" parent="34" name="quarternumber">
+    <column id="93" parent="35" name="quarternumber">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1112</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="82" parent="34" name="yearfk">
+    <column id="94" parent="35" name="yearfk">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>746</StateNumber>
+      <StateNumber>1112</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="83" parent="34" name="quarter_pkey">
-      <ObjectId>17363</ObjectId>
-      <StateNumber>746</StateNumber>
+    <index id="95" parent="35" name="quarter_pkey">
+      <ObjectId>18719</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="84" parent="34" name="quarter_quarternumber_yearfk_key">
-      <ObjectId>17365</ObjectId>
-      <StateNumber>746</StateNumber>
+    <index id="96" parent="35" name="quarter_quarternumber_yearfk_key">
+      <ObjectId>18721</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>quarternumber
 yearfk</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="85" parent="34" name="quarter_pkey">
-      <ObjectId>17364</ObjectId>
-      <StateNumber>746</StateNumber>
+    <key id="97" parent="35" name="quarter_pkey">
+      <ObjectId>18720</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>quarter_pkey</UnderlyingIndexName>
     </key>
-    <key id="86" parent="34" name="quarter_quarternumber_yearfk_key">
-      <ObjectId>17366</ObjectId>
-      <StateNumber>746</StateNumber>
+    <key id="98" parent="35" name="quarter_quarternumber_yearfk_key">
+      <ObjectId>18722</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>quarternumber
 yearfk</ColNames>
       <UnderlyingIndexName>quarter_quarternumber_yearfk_key</UnderlyingIndexName>
     </key>
-    <foreign-key id="87" parent="34" name="quarter_yearfk_fkey">
-      <ObjectId>17367</ObjectId>
-      <StateNumber>746</StateNumber>
+    <foreign-key id="99" parent="35" name="quarter_yearfk_fkey">
+      <ObjectId>18723</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>yearfk</ColNames>
-      <RefTableId>17349</RefTableId>
+      <RefTableId>18705</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>year</RefTableName>
       <RefKeyName>year_pkey</RefKeyName>
       <RefColNames>year</RefColNames>
     </foreign-key>
-    <check id="88" parent="34" name="quarter_quarternumber_check">
-      <ObjectId>17362</ObjectId>
-      <StateNumber>746</StateNumber>
+    <check id="100" parent="35" name="quarter_quarternumber_check">
+      <ObjectId>18718</ObjectId>
+      <StateNumber>1112</StateNumber>
       <ColNames>quarternumber</ColNames>
       <Predicate>(quarternumber &gt;= 1) AND (quarternumber &lt;= 4)</Predicate>
     </check>
-    <column id="89" parent="35" name="year">
+    <column id="101" parent="36" name="year">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>745</StateNumber>
+      <StateNumber>1111</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="90" parent="35" name="isleap">
+    <column id="102" parent="36" name="isleap">
       <Position>2</Position>
       <DataType>boolean|0s</DataType>
-      <StateNumber>745</StateNumber>
+      <StateNumber>1111</StateNumber>
       <DefaultExpression>false</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
-    <index id="91" parent="35" name="year_pkey">
-      <ObjectId>17354</ObjectId>
-      <StateNumber>745</StateNumber>
+    <index id="103" parent="36" name="year_pkey">
+      <ObjectId>18710</ObjectId>
+      <StateNumber>1111</StateNumber>
       <ColNames>year</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="92" parent="35" name="year_pkey">
-      <ObjectId>17355</ObjectId>
-      <StateNumber>745</StateNumber>
+    <key id="104" parent="36" name="year_pkey">
+      <ObjectId>18711</ObjectId>
+      <StateNumber>1111</StateNumber>
       <ColNames>year</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>year_pkey</UnderlyingIndexName>
     </key>
-    <check id="93" parent="35" name="year_year_check">
-      <ObjectId>17353</ObjectId>
-      <StateNumber>745</StateNumber>
+    <check id="105" parent="36" name="year_year_check">
+      <ObjectId>18709</ObjectId>
+      <StateNumber>1111</StateNumber>
       <ColNames>year</ColNames>
       <Predicate>year &lt; 2500</Predicate>
     </check>
-    <argument id="94" parent="36">
+    <argument id="106" parent="37">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>trigger|0s</DataType>
     </argument>
-    <argument id="95" parent="37" name="year">
+    <argument id="107" parent="38" name="year">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="96" parent="37">
+    <argument id="108" parent="38">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>boolean|0s</DataType>
     </argument>
-    <argument id="97" parent="38" name="date">
+    <argument id="109" parent="39" name="date">
       <Position>1</Position>
       <DataType>date|0s</DataType>
     </argument>
-    <argument id="98" parent="38" name="monthid">
+    <argument id="110" parent="39" name="monthid">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="99" parent="38">
+    <argument id="111" parent="39">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="100" parent="39" name="monthnum">
+    <argument id="112" parent="40" name="monthnum">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="101" parent="39" name="quarterid">
+    <argument id="113" parent="40" name="quarterid">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="102" parent="39">
+    <argument id="114" parent="40">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="103" parent="40" name="quarter_num">
+    <argument id="115" parent="41" name="quarter_num">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="104" parent="40" name="year">
+    <argument id="116" parent="41" name="year">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="105" parent="40">
+    <argument id="117" parent="41">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="106" parent="41" name="date">
+    <argument id="118" parent="42" name="date">
       <Position>1</Position>
       <DataType>date|0s</DataType>
     </argument>
-    <argument id="107" parent="41">
+    <argument id="119" parent="42">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>void|0s</DataType>
     </argument>
-    <argument id="108" parent="42" name="weekday">
+    <argument id="120" parent="43" name="weekday">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="109" parent="42">
+    <argument id="121" parent="43">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>varchar|0s</DataType>
     </argument>
-    <argument id="110" parent="43" name="month">
+    <argument id="122" parent="44" name="month">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
     </argument>
-    <argument id="111" parent="43">
+    <argument id="123" parent="44">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>varchar|0s</DataType>
     </argument>

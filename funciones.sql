@@ -1,4 +1,4 @@
-drop table if exists YEAR,QUARTER,MONTH,DATEDETAIL,EVENT;
+drop table if exists YEAR,QUARTER,MONTH,DATEDETAIL,EVENT,EVENT_AUX;
 
 create table YEAR (
 	year integer not null check (year < 2500),
@@ -88,6 +88,15 @@ create table EVENT (
 	foreign key (Declaration_Date) references DATEDETAIL
 );
 
+create table EVENT_AUX (
+	Declaration_Number varchar(20) check (Declaration_Number like 'DR-_%'),
+	Declaration_Type varchar(30) check (Declaration_Type in ('Disaster', 'Fire', 'Emergency')),
+	Declaration_Date date not null,
+	State varchar(2) check( State in ('AK','AL','AR','AZ','CA','CO','CT','DC','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MS','MO','MT','NC','NE','NH','NJ','NM','NV','NY','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY')),
+	Disaster_Type varchar(20) check( Disaster_Type in ('Tornado','Flood','Fire','Other','Earthquake','Hurricane','Volcano','Storm','Chemical','Typhoon','Drought','Dam/Levee Break','Snow','Ice','Winter','Mud/Landslide','Human Cause','Terrorism','Tsunami','Water')),
+	primary key (Declaration_Number)
+);
+
 create or replace function get_weekday (IN weekday integer)
 returns varchar as $$
     begin
@@ -110,8 +119,6 @@ returns boolean as $$
     	return (year % 4 = 0) AND ((year % 100 <> 0) or (year % 400 = 0));
     end;
 $$ language plpgsql;
- 
-set datestyle to dmy;
 
 create or replace function fillYear ( date Date )
 returns void as $$
@@ -196,38 +203,40 @@ RETURNS Trigger
 AS $$
 	DECLARE
 		date date = new.Declaration_Date;
-		month integer = extract(month from date);
-		year integer = extract(year from date);
-		day integer = extract(day from date);
+	    month integer = extract(month from date);
+		vyear integer = extract(year from date);
+		vday integer = extract(day from date);
 		quarter integer = (month/4) + 1;
 		quarterId integer = -1;
 		monthId integer = -1;
 		dateDetail integer = -1;
 	BEGIN
-		if not exists (select t1.year from YEAR as t1 where t1.year == year) then
-			execute fillYear(year);
+		if not exists (select t1.year from YEAR as t1 where t1.year = vyear) then
+			execute fillYear(date);
 		end if;
-		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber==quarter;
+		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber=quarter;
 		if  quarterId is null then
-			quarterId := fillQuarter(quarter,year);
+			quarterId := fillQuarter(quarter,vyear);
 		end if;
-		select t1.id into monthId from MONTH as t1 where t1.monthid==month;
+		select t1.id into monthId from MONTH as t1 where t1.monthid=month;
 		if  monthId is null then
 			monthid := fillMonth(month,quarterId);
 		end if;
-		select t1.id into dateDetail from DATEDETAIL as t1 where t1.day==day && t1.monthfk=monthId;
+		select t1.id into dateDetail from DATEDETAIL as t1 where t1.day=vday and t1.monthfk=monthId;
 		if  dateDetail is null then
 			dateDetail := FillDateDetails(date,monthId);
 		end if;
+		raise notice 'hola';
 		new.Declaration_Date := dateDetail;
-
+        raise notice '%',new.Declaration_Date;
+		insert into EVENT values (new.Declaration_Number,new.Declaration_Type,new.Declaration_Date,new.State,new.Disaster_Type);
+        return new;
 	END;
 $$ LANGUAGE plpgsql;
 
 create trigger fill_data
-before insert on EVENT
+before insert on EVENT_AUX
 for each row
 execute procedure checking();
 
-copy EVENT from './fed_emergency_disaster.csv' delimiter ',' csv header;
---no encuentra el archivo
+copy EVENT_AUX from 'C:\temp\fed_emergency_disaster.csv' delimiter ',' csv header;
