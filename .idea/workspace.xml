@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="STATES">
+    <list default="true" id="ad69e44c-ddbb-458f-b3f9-f2ffc984aa58" name="Default Changelist" comment="FUNCIONA">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/af6169b2-198b-47cb-b1f6-2820c31d9320/storage_v2/_src_/database/tpe.acEBAA/schema/public.abK9xQ.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funciones.sql" beforeDir="false" afterPath="$PROJECT_DIR$/funciones.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,29 +68,30 @@
     <MESSAGE value="trying..." />
     <MESSAGE value=".." />
     <MESSAGE value="STATES" />
-    <option name="LAST_COMMIT_MESSAGE" value="STATES" />
+    <MESSAGE value="FUNCIONA" />
+    <option name="LAST_COMMIT_MESSAGE" value="FUNCIONA" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591886546234">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1591886546234" />
-    <state width="845" height="162" key="GridCell.Tab.0.bottom" timestamp="1592409414825">
+    <state width="845" height="162" key="GridCell.Tab.0.bottom" timestamp="1592409551733">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592409414825" />
-    <state width="845" height="162" key="GridCell.Tab.0.center" timestamp="1592409414825">
+    <state width="845" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592409551733" />
+    <state width="845" height="162" key="GridCell.Tab.0.center" timestamp="1592409551732">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592409414825" />
-    <state width="845" height="162" key="GridCell.Tab.0.left" timestamp="1592409414825">
+    <state width="845" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592409551732" />
+    <state width="845" height="162" key="GridCell.Tab.0.left" timestamp="1592409551732">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592409414825" />
-    <state width="845" height="162" key="GridCell.Tab.0.right" timestamp="1592409414825">
+    <state width="845" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592409551732" />
+    <state width="845" height="162" key="GridCell.Tab.0.right" timestamp="1592409551732">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592409414825" />
+    <state width="845" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592409551732" />
     <state width="198" height="457" key="HiddenNamespacesPopup" timestamp="1591886716745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

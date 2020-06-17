@@ -142,6 +142,7 @@ returns integer as $$
 	declare
 		ret integer;
 	begin
+	    raise notice '%',year;
 		insert into quarter(quarternumber,yearfk) values (quarter_num, year);
 		select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
 		return ret;
@@ -217,11 +218,12 @@ AS $$
 		if not exists (select t1.year from YEAR as t1 where t1.year = vyear) then
 			execute fillYear(date);
 		end if;
-		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber=quarter;
+		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber=quarter and t1.yearfk=vyear;
 		if  quarterId is null then
 			quarterId := fillQuarter(quarter,vyear);
+			raise notice '% %',vyear,quarterId;
 		end if;
-		select t1.id into monthId from MONTH as t1 where t1.monthid=month;
+		select t1.id into monthId from MONTH as t1 where t1.monthid=month and t1.quarterfk=quarterId;
 		if  monthId is null then
 			monthid := fillMonth(month,quarterId);
 		end if;
@@ -229,7 +231,6 @@ AS $$
 		if  dateDetail is null then
 			dateDetail := FillDateDetails(date,monthId);
 		end if;
-        raise notice '%',dateDetail;
 		insert into EVENT values (new.Declaration_Number,new.Declaration_Type,dateDetail,new.State,new.Disaster_Type);
         return new;
 	END;
