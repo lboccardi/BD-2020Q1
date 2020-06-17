@@ -139,14 +139,12 @@ returns integer as $$
 	declare
 		ret integer;
 	begin
-		insert into quarter values (quarter_num, year);
+		insert into quarter(quarternumber,yearfk) values (quarter_num, year);
 		select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
 		return ret;
 	end;
 $$ language plpgsql;
-	
-
-	 
+		 
 	
 	 
 
