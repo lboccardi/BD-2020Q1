@@ -639,7 +639,6 @@ EM-3068,Emergency,16/01/1979,IL,Snow
 EM-3069,Emergency,19/01/1979,WI,Snow
 DR-571,Disaster,29/01/1979,NM,Flood
 DR-572,Disaster,12/02/1979,MH,Typhoon
-DR-572,Disaster,12/02/1979,PW,Typhoon
 DR-573,Disaster,07/03/1979,HI,Flood
 EM-3070,Emergency,12/03/1979,WA,Flood
 EM-3071,Emergency,12/03/1979,MO,Flood
@@ -1226,7 +1225,6 @@ DR-1107,Disaster,19/03/1996,OR,Storm
 DR-1108,Disaster,20/03/1996,AL,Storm
 DR-1109,Disaster,02/04/1996,IN,Flood
 DR-1110,Disaster,23/04/1996,AR,Storm
-DR-1110,Disaster,23/04/1996,IL,Storm
 DR-1111,Disaster,23/04/1996,AR,Storm
 DR-1112,Disaster,06/05/1996,IL,Storm
 DR-1113,Disaster,16/05/1996,MT,Storm
