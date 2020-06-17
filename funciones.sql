@@ -1,5 +1,7 @@
 drop table if exists YEAR,QUARTER,MONTH,DATEDETAIL,EVENT,EVENT_AUX;
 
+set datestyle to dmy;
+
 create table YEAR (
 	year integer not null check (year < 2500),
 	isleap boolean default false,
