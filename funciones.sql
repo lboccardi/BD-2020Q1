@@ -229,10 +229,8 @@ AS $$
 		if  dateDetail is null then
 			dateDetail := FillDateDetails(date,monthId);
 		end if;
-		raise notice 'hola';
-		new.Declaration_Date := dateDetail;
-        raise notice '%',new.Declaration_Date;
-		insert into EVENT values (new.Declaration_Number,new.Declaration_Type,new.Declaration_Date,new.State,new.Disaster_Type);
+        raise notice '%',dateDetail;
+		insert into EVENT values (new.Declaration_Number,new.Declaration_Type,dateDetail,new.State,new.Disaster_Type);
         return new;
 	END;
 $$ LANGUAGE plpgsql;
