@@ -231,6 +231,6 @@ execute procedure checking();
 
 copy EVENT from './fed_emergency_disaster.csv' with delimiter ',' csv header;
 -- creo que deberia ser
--- copy EVENT from './fed_emergency_disaster.csv' with format csv;
+-- copy EVENT from './fed_emergency_disaster.csv' with format csv, header;
 
 --no encuentra el archivo
