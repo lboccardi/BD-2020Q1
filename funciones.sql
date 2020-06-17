@@ -142,7 +142,6 @@ returns integer as $$
 	declare
 		ret integer;
 	begin
-	    raise notice '%',year;
 		insert into quarter(quarternumber,yearfk) values (quarter_num, year);
 		select id into ret from quarter where quarternumber = quarter_num and yearfk = year;
 		return ret;
@@ -174,27 +173,7 @@ $$
 	END;
 $$ LANGUAGE plpgsql;
  
-DO $$
-  	DECLARE
-  		d1 integer:= 0;
-  		d2 integer:= 2;
-  		d3 integer:= 3;
-  	begin
-      	raise notice '%',get_weekday(d1);
-      	raise notice '%',get_weekday(d2);
-     	raise notice '%',get_weekday(d3);
-  	end;
-$$;
 
-DO $$
- 	DECLARE
-		mes integer :=12;
-		aa varchar(20);
-	BEGIN
-		aa := GetMonthDescription(mes);		
-		raise notice '%', aa;
-	END;
- $$;
 
 
 
@@ -221,7 +200,6 @@ AS $$
 		select t1.id into quarterId from QUARTER as t1 where t1.quarternumber=quarter and t1.yearfk=vyear;
 		if  quarterId is null then
 			quarterId := fillQuarter(quarter,vyear);
-			raise notice '% %',vyear,quarterId;
 		end if;
 		select t1.id into monthId from MONTH as t1 where t1.monthid=month and t1.quarterfk=quarterId;
 		if  monthId is null then
@@ -242,3 +220,4 @@ for each row
 execute procedure checking();
 
 copy EVENT_AUX from 'C:\temp\fed_emergency_disaster.csv' delimiter ',' csv header;
+drop table if exists event_aux;
