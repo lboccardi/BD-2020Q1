@@ -230,4 +230,7 @@ for each row
 execute procedure checking();
 
 copy EVENT from './fed_emergency_disaster.csv' with delimiter ',' csv header;
+-- creo que deberia ser
+-- copy EVENT from './fed_emergency_disaster.csv' with format csv;
+
 --no encuentra el archivo
